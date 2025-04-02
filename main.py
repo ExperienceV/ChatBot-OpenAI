@@ -4,6 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from openai import AsyncOpenAI
 from pathlib import Path
 import markdown
+import uvicorn
 import os
 
 # Configurar la API key y base_url de DeepSeek
@@ -88,3 +89,7 @@ async def websocket_endpoint(websocket: WebSocket):
         print("Cliente desconectado")  # Registrar la desconexión en la consola
     except Exception as e:
         print(f"Error en la conexión WebSocket: {str(e)}")  # Registrar errores
+
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 8080))  # Usa el puerto 8000 como fallback
+    uvicorn.run(app, host="0.0.0.0", port=port)
