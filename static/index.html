@@ -143,7 +143,7 @@
     const waitingMessage = document.getElementById('waiting-message');
 
     // Crear conexión WebSocket
-    const socket = new WebSocket("ws://chatbot-openai.up.railway.app/ws");
+    const socket = new WebSocket("wss://chatbot-openai.up.railway.app/ws");
 
     socket.onopen = () => {
         console.log("Conexión WebSocket abierta");
